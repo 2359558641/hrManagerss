@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bdqn.mapper.personmapper">
+
+    <select id="getlist" resultType="person">
+         SELECT * FROM person ORDER BY id DESC
+    </select>
+    <delete id="del" parameterType="java.lang.Long">
+
+        delete from person where id=#{id};
+    </delete>
+    <insert id="add" parameterType="int">
+        insert into person (name, gender, rank, department, age) values (#{name},#{gender},#{rank},#{department},#{age});
+    </insert>
+    <select id="getview" resultType="Person">
+        select * from person where id=#{id};
+    </select>
+    <update id="upd" parameterType="int">
+        update person set name=#{name},gender=#{gender},rank=#{rank},department=#{department},age=#{age} where id=#{id};
+    </update>
+</mapper>
